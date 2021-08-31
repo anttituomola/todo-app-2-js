@@ -1,0 +1,38 @@
+body {
+    margin: 1rem;
+}
+
+#input-el {
+    padding: 1rem;
+}
+
+#button-el {
+    color: black;
+    background-color: cadetblue;
+    display: block;
+    margin-top: 10px;
+    width: 150px;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+#clear-el {
+    margin: 0.5rem;
+}
+
+#todoRender-el {
+    margin-top: 15px;
+    list-style-type: none;
+    font-size: 1.125rem;
+    font-weight: 100;
+}
+
+.deleteButton {
+    border: 0px;
+    border-radius: 2px;
+    color: gray;
+}
+
+.taskDone {
+    text-decoration: line-through;
+}
