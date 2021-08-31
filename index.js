@@ -86,7 +86,9 @@ function doneTogler(i) {
 
 //HANDLING LOCAL STORAGE
 function feedLocalStorage() {
-    localStorage.setItem("todoElements", JSON.stringify(todos))
+    if(todos) {
+        localStorage.setItem("todoElements", JSON.stringify(todos))
+    }
 }
 
 function getFromLocalStorage() {
