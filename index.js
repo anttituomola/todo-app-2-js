@@ -10,7 +10,6 @@ clearEl.addEventListener("click", () => {
     localStorage.clear()
     todos = []
     rendered()
-    console.log("Cleared")
 })
 buttonEl.addEventListener("click", buttonHandler)
 document.addEventListener("DOMContentLoaded", getFromLocalStorage)
@@ -42,7 +41,7 @@ function rendered() {
         for (i = 0; i < todos.length; i++) {
             todoRenderEl.innerHTML +=
                 `<li>
-            <input type="checkbox" onchange="strikeTrough()" />
+            <input type="checkbox" onchange="strikeTrough(${i})" />
             <span id="${i}" class="todoElement">${todos[i].text}</span>
             <button id="${i}" onclick="deleteButtonHandler(${i})" class="deleteButton">DELETE</button>
             </li>`
@@ -57,36 +56,14 @@ function deleteButtonHandler(i) {
     rendered()
 }
 
-//TRYING TO ADD CLASS TO CHECKED ITEMS
-/*
-function strikeTrough() {
-    let current = document.querySelector(".todoElement")
-    let sibling = current.nextSibling
-    console.log(sibling.textContent)
-}
-
 function strikeTrough(i) {
-    const checkEl = document.getElementById(i)
-
-    for (let todoEl of todos) {
-        if (todoEl.id === i) {
-            todoEl.done = true
-        }
-    }
+    let selectedText = document.getElementById(i)
+    selectedText.classList.toggle("taskDone")
 }
-
-function doneTogler(i) {
-    const checkEl = document.getElementById(i)
-    for (let todo of todos) {
-        if (todo.id === i) {
-            checkEl.classList.add("taskDone")
-        }
-    }
-}*/
 
 //HANDLING LOCAL STORAGE
 function feedLocalStorage() {
-    if(todos) {
+    if (todos) {
         localStorage.setItem("todoElements", JSON.stringify(todos))
     }
 }
