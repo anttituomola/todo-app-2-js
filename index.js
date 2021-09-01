@@ -1,4 +1,4 @@
-let todos = [{}]
+let todos = []
 
 const buttonEl = document.getElementById("button-el")
 const inputEl = document.getElementById("input-el")
