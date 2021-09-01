@@ -1,9 +1,14 @@
-body {
-    margin: 1rem;
+#container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
 }
 
 #input-el {
-    padding: 1rem;
+    padding: 0.25rem;
 }
 
 #button-el {
@@ -11,13 +16,24 @@ body {
     background-color: cadetblue;
     display: block;
     margin-top: 10px;
-    width: 150px;
-    padding: 1rem;
+    width: 100px;
+    padding: 0.5rem;
     margin: 0.5rem;
+}
+
+#button-el:hover {
+    background-color: green;
+    cursor: pointer;
 }
 
 #clear-el {
     margin: 0.5rem;
+    color: grey;
+}
+
+#clear-el:hover {
+    background-color: red;
+    cursor: pointer;
 }
 
 #todoRender-el {
