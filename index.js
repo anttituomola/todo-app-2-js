@@ -6,11 +6,7 @@ const todoRenderEl = document.getElementById("todoRender-el")
 const localStorageContent = localStorage.getItem("todoElements")
 const clearEl = document.getElementById("clear-el")
 
-clearEl.addEventListener("click", () => {
-    localStorage.clear()
-    todos = []
-    rendered()
-})
+//EVENT LISTENERS
 buttonEl.addEventListener("click", buttonHandler)
 document.addEventListener("DOMContentLoaded", getFromLocalStorage)
 inputEl.addEventListener("keypress", function (e) {
@@ -20,6 +16,7 @@ inputEl.addEventListener("keypress", function (e) {
 })
 inputEl.focus()
 
+//BUTTONS
 function buttonHandler() {
     if (inputEl.value === "") { } else {
         todoRenderEl.textContent = ""
@@ -35,6 +32,23 @@ function buttonHandler() {
     }
 }
 
+clearEl.addEventListener("click", () => {
+    localStorage.clear()
+    todos = []
+    rendered()
+})
+
+function deleteButtonHandler(i) {
+    todos.splice(i, 1)
+    rendered()
+}
+
+function strikeTrough(i) {
+    let selectedText = document.getElementById(i)
+    selectedText.classList.toggle("taskDone")
+}
+
+//RENDER
 function rendered() {
     todoRenderEl.innerHTML = ""
     if (todos.length < 1) { } else {
@@ -49,16 +63,6 @@ function rendered() {
         feedLocalStorage()
     }
     inputEl.focus()
-}
-
-function deleteButtonHandler(i) {
-    todos.splice(i, 1)
-    rendered()
-}
-
-function strikeTrough(i) {
-    let selectedText = document.getElementById(i)
-    selectedText.classList.toggle("taskDone")
 }
 
 //HANDLING LOCAL STORAGE
