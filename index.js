@@ -48,7 +48,6 @@ function strikeTrough(i) {
     selectedText.classList.toggle("taskDone")
 }
 
-
 //RENDER
 function rendered() {
     todoRenderEl.innerHTML = ""
@@ -80,4 +79,5 @@ function getFromLocalStorage() {
     }
 }
 
-
+//TESTING
+export default testing
