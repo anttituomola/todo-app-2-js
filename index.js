@@ -1,5 +1,6 @@
 let todos = []
 
+
 const buttonEl = document.getElementById("button-el")
 const inputEl = document.getElementById("input-el")
 const todoRenderEl = document.getElementById("todoRender-el")
@@ -18,7 +19,7 @@ inputEl.focus()
 
 //BUTTONS
 function buttonHandler() {
-    if (inputEl.value === "") { } else {
+    if (inputEl.value != "") {
         todoRenderEl.textContent = ""
         todos.push({
             "text": inputEl.value,
@@ -42,20 +43,20 @@ function deleteButtonHandler(i) {
     todos.splice(i, 1)
     rendered()
 }
-
 function strikeTrough(i) {
     let selectedText = document.getElementById(i)
     selectedText.classList.toggle("taskDone")
 }
 
+
 //RENDER
 function rendered() {
     todoRenderEl.innerHTML = ""
     if (todos.length < 1) { } else {
-        for (i = 0; i < todos.length; i++) {
+        for (let i = 0; i < todos.length; i++) {
             todoRenderEl.innerHTML +=
                 `<li>
-            <input type="checkbox" onchange="strikeTrough(${i})" />
+            <input type="checkbox" onchange="strikeTrough(event)" />
             <span id="${i}" class="todoElement">${todos[i].text}</span>
             <button id="${i}" onclick="deleteButtonHandler(${i})" class="deleteButton">DELETE</button>
             </li>`
@@ -78,3 +79,5 @@ function getFromLocalStorage() {
         rendered()
     }
 }
+
+
