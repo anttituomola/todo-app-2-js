@@ -51,11 +51,11 @@ function strikeTrough(i) {
 //RENDER
 function rendered() {
     todoRenderEl.innerHTML = ""
-    if (todos.length < 1) { } else {
+    if (todos.length > 0) {
         for (let i = 0; i < todos.length; i++) {
             todoRenderEl.innerHTML +=
                 `<li>
-            <input type="checkbox" onchange="strikeTrough(event)" />
+            <input type="checkbox" onchange="strikeTrough(${i})" />
             <span id="${i}" class="todoElement">${todos[i].text}</span>
             <button id="${i}" onclick="deleteButtonHandler(${i})" class="deleteButton">DELETE</button>
             </li>`
@@ -78,6 +78,3 @@ function getFromLocalStorage() {
         rendered()
     }
 }
-
-//TESTING
-export default testing
